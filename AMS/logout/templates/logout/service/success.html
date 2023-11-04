@@ -1,0 +1,22 @@
+<style>
+    .submit-button{
+        background-color:black;
+        border-top-right-radius:20px;
+        border-top-left-radius:20px;
+        border-bottom-right-radius:20px;
+        border-bottom-left-radius:20px;
+        height:30px;
+        width:75px;
+    }
+</style>
+{% extends 'logout/base.html' %}
+{% block content %}
+<div class="card" style="padding-top:100px;padding-bottom:200px;">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+          <center><i style="color: #9ABC66;font-size: 100px;line-height: 200px;" class="checkmark">✓</i></center>
+      </div>
+       <center><h1>Success</h1>
+    <button class="submit-button"><a style="color:white;" href="{% url 'lhome' %}">Back></a></button>
+           </center>
+</div>
+{% endblock %}

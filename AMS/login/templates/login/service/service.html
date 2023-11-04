@@ -1,0 +1,39 @@
+{% extends 'login/base.html' %}
+{% block content %}
+{% if error == "no" %}
+<script>
+  alert('Record save successfully');
+  window.location = "{% url 'view_appointment' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('invalid login, try again');
+</script>
+{% endif %}
+
+
+<div class="container">
+  <h2 class="text-center">Add Appointment</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label>Customer Name</label>
+    <input type="text" class="form-control"><br>
+    <label>Car Model</label>
+    <input type="text" class="form-control"><br>
+    <label>Email</label>
+    <input type="email" class="form-control"><br>
+    <label>Phone Number</label>
+    <input type="number" class="form-control"><br>
+    <label>Registration Number</label>
+    <input type="text" class="form-control"><br>
+    <label>Pickup & Dropoff</label>
+    <input type="text" class="form-control"><br>
+    <label>Appointment Date</label>
+    <input type="date" class="form-control" name="date" /><br>
+    <input type="submit" value="submit" class="form-control btn btn-primary" />
+  </form>
+</div>
+<br>
+{% endblock %}

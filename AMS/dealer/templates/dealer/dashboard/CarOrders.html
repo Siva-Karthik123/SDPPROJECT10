@@ -1,0 +1,67 @@
+<style>
+    table, th, td {
+  border-style: double;
+}
+h5,h4{
+text-align:center;
+}
+</style>
+{% extends 'dealer/base.html' %}
+{% block content %}
+
+<h1 style="color:#42f5a7;font-style:italic;text-align:center;font-size:80px">Car Orders</h1>
+<center>
+<table style="width:95%;">
+    <tr>
+        <th><h4>Customer Name</h4></th>
+        <th><h4>Car Model</h4></th>
+        <th><h4>Email</h4></th>
+        <th><h4>Phone Number</h4></th>
+    </tr>
+    {% for i in page_obj %}
+    <tr>
+        <td><h5>{{ i.Customer_Name }}</h5></td>
+        <td><h5>{{ i.Car_Model }}</h5></td>
+        <td><h5>{{ i.Email }}</h5></td>
+        <td><h5>{{ i.Phone_Number }}</h5></td>
+    </tr>
+    {% endfor %}
+</table>
+    </center>
+
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="pagination" style="width: 100%;left:47%;">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}
